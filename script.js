@@ -28,10 +28,6 @@ function firstRound (playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = 'right';
-const computerSelection = computerPlay();
-
-console.log(firstRound(playerSelection, computerSelection));
 
 //second round function where the player choses to dogde left, right, or middle
 //if player choice is the same as computer choice, computer gets one point
@@ -50,5 +46,34 @@ function secondRound (playerSelection, computerSelection) {
             return "You dodged the computers shot."
         }
     }
+//------ test logs ---------
+//console.log(firstRound(playerSelection, computerSelection));
+//console.log(secondRound(playerSelection, computerSelection));
+//-------------------------
+
+
 //game function where first and second rounds repeat until player or computer has score of 3
+function game() {
+    for (i = 0; i < 3; i++) {
+        let playerSelection = 'right';
+        let computerSelection = computerPlay();
+        firstRound(playerSelection, computerSelection);
+        playerSelection = 'right';
+        computerSelection = computerPlay();
+        secondRound(playerSelection, computerSelection);
+        console.log(i);
+    }
+
+    console.log(`You hit ${playerScore} shots. The computer hit ${computerScore} shots`)
+
+    if (playerScore > computerScore) {
+        return "You win!";
+    } else if (playerScore < computerScore) {
+        return "You lose.";
+    } else {
+        return "It's a tie!";
+    }
+}
+
+game();
 //first to 3 wins
