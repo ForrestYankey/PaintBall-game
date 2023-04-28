@@ -16,17 +16,18 @@ function firstRound (playerSelection, computerSelection) {
 //if player choice is the same as computer choice, players gets 1 point
     if (playerSelection === 'left' && computerSelection === 'left') {
         playerScore++;
-        return "You shot the computer!";
+        return firstRoundResult = "You shot the computer!";
     } else if (playerSelection === 'right' && computerSelection === 'right') {
         playerScore++;
-        return "You shot the computer!";
+        return firstRoundResult = "You shot the computer!";
     } else if (playerSelection === 'middle' && computerSelection === 'middle') {
         playerScore++;
-        return "You shot the computer!";
+        return firstRoundResult = "You shot the computer!";
     } else {
-        return "You missed the computer."
+        return firstRoundResult = "You missed the computer."
     }
 }
+
 
 
 //second round function where the player choses to dogde left, right, or middle
@@ -35,19 +36,22 @@ function secondRound (playerSelection, computerSelection) {
     //if player choice is the same as computer choice, players gets 1 point
         if (playerSelection === 'left' && computerSelection === 'left') {
             computerScore++;
-            return "You were shot by the computer!";
+            return secondRoundResult = "You were shot by the computer!";
         } else if (playerSelection === 'right' && computerSelection === 'right') {
             computerScore++;
-            return "You were shot by the computer!";
+            return secondRoundResult = "You were shot by the computer!";
         } else if (playerSelection === 'middle' && computerSelection === 'middle') {
             computerScore++;
-            return "You were shot by the computer!";
+            return secondRoundResult = "You were shot by the computer!";
         } else {
-            return "You dodged the computers shot."
+            return secondRoundResult = "You dodged the computers shot."
         }
     }
 //------ test logs ---------
-//console.log(firstRound(playerSelection, computerSelection));
+//const playerSelection = 'right';
+//const computerSelection = computerPlay();
+//console.log(secondRound(playerSelection, computerSelection));
+//console.log(playerScore + "/" + computerScore)
 //console.log(secondRound(playerSelection, computerSelection));
 //-------------------------
 
@@ -59,14 +63,15 @@ function game() {
             let playerSelection = prompt("Take a shot!", "Left, Right, or Middle").toLowerCase();
             let computerSelection = computerPlay();
             firstRound(playerSelection, computerSelection);
-            console.log(firstRound(playerSelection, computerSelection));
+            console.log(firstRoundResult);
             console.log(`Score: ${playerScore} - ${computerScore}`)
         }
+
         for (l = 0; l < 3; l++) {
             playerSelection = prompt("Take cover!", "Left, Right, or Middle").toLowerCase();
             computerSelection = computerPlay();
             secondRound(playerSelection, computerSelection);
-            console.log(secondRound(playerSelection, computerSelection));
+            console.log(secondRoundResult);
             console.log(`Score: ${playerScore} - ${computerScore}`)
         }
         //console.log(i);
