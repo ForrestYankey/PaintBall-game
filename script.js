@@ -52,19 +52,27 @@ function secondRound (playerSelection, computerSelection) {
 //-------------------------
 
 
-//game function where first and second rounds repeat until player or computer has score of 3
+//game function
 function game() {
     for (i = 0; i < 3; i++) {
-        let playerSelection = 'right';
-        let computerSelection = computerPlay();
-        firstRound(playerSelection, computerSelection);
-        playerSelection = 'right';
-        computerSelection = computerPlay();
-        secondRound(playerSelection, computerSelection);
+        for (j = 0; j < 3; j++) { //round 1 has 3 turns
+            let playerSelection = prompt("Take a shot!", "Left, Right, or Middle").toLowerCase();
+            let computerSelection = computerPlay();
+            firstRound(playerSelection, computerSelection);
+            console.log(firstRound(playerSelection, computerSelection));
+            console.log(`Score: ${playerScore} - ${computerScore}`)
+        }
+        for (l = 0; l < 3; l++) {
+            playerSelection = prompt("Take cover!", "Left, Right, or Middle").toLowerCase();
+            computerSelection = computerPlay();
+            secondRound(playerSelection, computerSelection);
+            console.log(secondRound(playerSelection, computerSelection));
+            console.log(`Score: ${playerScore} - ${computerScore}`)
+        }
         //console.log(i);
     }
 
-    console.log(`You hit ${playerScore} shots. The computer hit ${computerScore} shots`);
+    console.log(`You hit ${playerScore} shots. The computer hit ${computerScore} shots.`);
     //console.log(computerScore + " " + playerScore);
 
     if (playerScore > computerScore) {
