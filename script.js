@@ -61,10 +61,11 @@ function game() {
         playerSelection = 'right';
         computerSelection = computerPlay();
         secondRound(playerSelection, computerSelection);
-        console.log(i);
+        //console.log(i);
     }
 
-    console.log(`You hit ${playerScore} shots. The computer hit ${computerScore} shots`)
+    console.log(`You hit ${playerScore} shots. The computer hit ${computerScore} shots`);
+    //console.log(computerScore + " " + playerScore);
 
     if (playerScore > computerScore) {
         return "You win!";
@@ -75,5 +76,5 @@ function game() {
     }
 }
 
-game();
+console.log(game());
 //first to 3 wins
